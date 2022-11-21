@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		145AE51F292B6505005EABA3 /* JournalListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 145AE51E292B6505005EABA3 /* JournalListView.swift */; };
 		147FE642292B5A4D00EFA725 /* FoodJournalAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FE641292B5A4D00EFA725 /* FoodJournalAppApp.swift */; };
 		147FE644292B5A4D00EFA725 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FE643292B5A4D00EFA725 /* ContentView.swift */; };
 		147FE646292B5A4E00EFA725 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 147FE645292B5A4E00EFA725 /* Assets.xcassets */; };
@@ -15,6 +16,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		145AE51E292B6505005EABA3 /* JournalListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JournalListView.swift; sourceTree = "<group>"; };
 		147FE63E292B5A4D00EFA725 /* FoodJournalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodJournalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		147FE641292B5A4D00EFA725 /* FoodJournalAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodJournalAppApp.swift; sourceTree = "<group>"; };
 		147FE643292B5A4D00EFA725 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +36,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		145AE520292B650C005EABA3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				147FE64F292B5C6F00EFA725 /* HomeView.swift */,
+				145AE51E292B6505005EABA3 /* JournalListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		147FE635292B5A4D00EFA725 = {
 			isa = PBXGroup;
 			children = (
@@ -53,9 +64,9 @@
 		147FE640292B5A4D00EFA725 /* FoodJournalApp */ = {
 			isa = PBXGroup;
 			children = (
+				145AE520292B650C005EABA3 /* Views */,
 				147FE641292B5A4D00EFA725 /* FoodJournalAppApp.swift */,
 				147FE643292B5A4D00EFA725 /* ContentView.swift */,
-				147FE64F292B5C6F00EFA725 /* HomeView.swift */,
 				147FE645292B5A4E00EFA725 /* Assets.xcassets */,
 				147FE647292B5A4E00EFA725 /* Preview Content */,
 			);
@@ -142,6 +153,7 @@
 			files = (
 				147FE650292B5C6F00EFA725 /* HomeView.swift in Sources */,
 				147FE644292B5A4D00EFA725 /* ContentView.swift in Sources */,
+				145AE51F292B6505005EABA3 /* JournalListView.swift in Sources */,
 				147FE642292B5A4D00EFA725 /* FoodJournalAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

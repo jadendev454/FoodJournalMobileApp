@@ -11,6 +11,7 @@ struct HomeView: View {
     var body: some View {
         Text("edede")
         //Text("edede")
+        //Text("edede")
     }
 }
 
