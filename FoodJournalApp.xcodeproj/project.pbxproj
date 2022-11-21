@@ -11,6 +11,7 @@
 		147FE644292B5A4D00EFA725 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FE643292B5A4D00EFA725 /* ContentView.swift */; };
 		147FE646292B5A4E00EFA725 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 147FE645292B5A4E00EFA725 /* Assets.xcassets */; };
 		147FE649292B5A4E00EFA725 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 147FE648292B5A4E00EFA725 /* Preview Assets.xcassets */; };
+		147FE650292B5C6F00EFA725 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FE64F292B5C6F00EFA725 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +20,7 @@
 		147FE643292B5A4D00EFA725 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		147FE645292B5A4E00EFA725 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		147FE648292B5A4E00EFA725 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		147FE64F292B5C6F00EFA725 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 			children = (
 				147FE641292B5A4D00EFA725 /* FoodJournalAppApp.swift */,
 				147FE643292B5A4D00EFA725 /* ContentView.swift */,
+				147FE64F292B5C6F00EFA725 /* HomeView.swift */,
 				147FE645292B5A4E00EFA725 /* Assets.xcassets */,
 				147FE647292B5A4E00EFA725 /* Preview Content */,
 			);
@@ -137,6 +140,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				147FE650292B5C6F00EFA725 /* HomeView.swift in Sources */,
 				147FE644292B5A4D00EFA725 /* ContentView.swift in Sources */,
 				147FE642292B5A4D00EFA725 /* FoodJournalAppApp.swift in Sources */,
 			);
