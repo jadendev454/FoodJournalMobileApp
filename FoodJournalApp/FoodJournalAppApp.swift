@@ -11,7 +11,17 @@ import SwiftUI
 struct FoodJournalAppApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            TabView{
+                HomeView()
+                    .tabItem {
+                        Label("Journal", systemImage: "list.bullet.clipboard")
+                    }.tag(1)
+                SettingsView()
+                    .tabItem {
+                        Label("Options", systemImage: "slider.horizontal.3")
+                    }.tag(2)
+            }
+            .accentColor(Color(.systemYellow))
         }
     }
 }

@@ -8,13 +8,20 @@
 import SwiftUI
 
 struct JournalListView: View {
+    
+    //Vars
+    @Binding var isAddFoodItemView:Bool
+
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack{
+            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        }
+        //.sheet(isPresented: <#T##Binding<Bool>#>, content: <#T##() -> View#>)
     }
 }
 
 struct JournalListView_Previews: PreviewProvider {
     static var previews: some View {
-        JournalListView()
+        JournalListView(isAddFoodItemView: .constant(false))
     }
 }
