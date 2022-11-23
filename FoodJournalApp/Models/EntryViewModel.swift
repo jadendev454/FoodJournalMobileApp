@@ -13,11 +13,11 @@ struct EntryModelView: View {
     
     let decription:String
     let date:Date
-    let imageName:String
+    let imageName:UIImage?
     
     var body: some View {
         HStack{
-            Image(imageName)
+            Image(uiImage: imageName!)
                 .resizable()
                 .aspectRatio(contentMode: .fit)
                 .font(.system(size: 10))

@@ -11,7 +11,11 @@ struct HomeView: View {
     
     //Vars
     @State var _journalEntries = Utilities.journalEntries
-    @State var isAddFoodItemView:Bool = false
+    @State var isAddFoodItemView:Bool = false {
+        didSet{
+            loadEntries()
+        }
+    }
     @State var check:String = "Food description eodjeojfoeofjeofoejfojefoejfoejfojejfooejfooejfojeofejofjoejfjfeofjeof eodjeodjoedoejoejdoedjoejdoeekdokeodoek"
     
     
@@ -60,12 +64,16 @@ struct HomeView: View {
                     }
                 }
                 
-                
+                /*
                 //Navigation Controllers
                 NavigationLink(destination: AddEntryView(isAddFoodItemView: $isAddFoodItemView), isActive: $isAddFoodItemView){
                     EmptyView()
                 }
+                 */
             }
+            .popover(isPresented: $isAddFoodItemView, content: {
+                AddEntryView(isAddFoodItemView: $isAddFoodItemView)
+            })
             .navigationTitle("My Food Journal")
             //.navigationBarTitleDisplayMode(.inline)
             .onAppear{
@@ -74,6 +82,10 @@ struct HomeView: View {
                 _journalEntries = Utilities.journalEntries
             }
         }
+    }
+    
+    func loadEntries() {
+        _journalEntries = Utilities.journalEntries
     }
 }
 

@@ -14,29 +14,42 @@ struct JournalItem: Identifiable {
     
     let decription:String
     let date:Date
-    let imageName:String
+    let imageName:UIImage?
 }
 
 
 public class Utilities{
     static var journalEntries:[JournalItem] = []
+    static var popCount:Int = 0
     
     
     static func adjustJournalEntries(_ entry:[JournalItem]){
         journalEntries = entry
     }
     
+    
+    func addEntry(_ entry: JournalItem) {
+        Utilities.journalEntries.append(entry)
+    }
+    
+    
     func popDemoEntries(_ amount:Int) {
+        
+        if Utilities.popCount > 0 {
+            return
+        }
+        
+        Utilities.popCount += 1
         
         var _newEntryList:[JournalItem] = []
         
         for i in 0...amount{
-            let entry = JournalItem.init(decription: "Food description eodjeojfoeofjeofoejfojefoejfoejfojejfooejfooejfojeofejofjoejfjfeofjeof eodjeodjoedoejoejdoedjoejdoeekdokeodoek", date: .now + TimeInterval(i), imageName: "placeholder_Image")
+            let entry = JournalItem.init(decription: "Food description eodjeojfoeofjeofoejfojefoejfoejfojejfooejfooejfojeofejofjoejfjfeofjeof eodjeodjoedoejoejdoedjoejdoeekdokeodoek", date: .now + TimeInterval(i), imageName: UIImage(named: "placeholder_Image"))
             
             _newEntryList.append(entry)
         }
         
-        Utilities.adjustJournalEntries(_newEntryList)
+        //Utilities.adjustJournalEntries(_newEntryList)
         
         print("\(Utilities.journalEntries.count)")
     }
