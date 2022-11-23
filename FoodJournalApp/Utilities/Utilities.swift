@@ -9,13 +9,35 @@ import Foundation
 import SwiftUI
 
 
-struct JournalItem {
+struct JournalItem: Identifiable {
+    var id: UUID = UUID()
+    
     let decription:String
     let date:Date
-    let image:Image
+    let imageName:String
 }
 
 
 public class Utilities{
     static var journalEntries:[JournalItem] = []
+    
+    
+    static func adjustJournalEntries(_ entry:[JournalItem]){
+        journalEntries = entry
+    }
+    
+    func popDemoEntries(_ amount:Int) {
+        
+        var _newEntryList:[JournalItem] = []
+        
+        for i in 0...amount{
+            let entry = JournalItem.init(decription: "Food description eodjeojfoeofjeofoejfojefoejfoejfojejfooejfooejfojeofejofjoejfjfeofjeof eodjeodjoedoejoejdoedjoejdoeekdokeodoek", date: .now + TimeInterval(i), imageName: "placeholder_Image")
+            
+            _newEntryList.append(entry)
+        }
+        
+        Utilities.adjustJournalEntries(_newEntryList)
+        
+        print("\(Utilities.journalEntries.count)")
+    }
 }

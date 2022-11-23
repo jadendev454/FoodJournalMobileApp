@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     //Vars
+    @State var _journalEntries = Utilities.journalEntries
     @State var isAddFoodItemView:Bool = false
     @State var check:String = "Food description eodjeojfoeofjeofoejfojefoejfoejfojejfooejfooejfojeofejofjoejfjfeofjeof eodjeodjoedoejoejdoedjoejdoeekdokeodoek"
     
@@ -18,34 +19,11 @@ struct HomeView: View {
         NavigationView{
             VStack{
                 ScrollView{
-                    HStack{
-                        Image("placeholder_Image")
-                            //.frame(width: 100, height: 100, alignment: .center)
-                            .resizable()
-                            .aspectRatio(contentMode: .fit)
-                            .font(.system(size: 10))
-                        
-                        VStack(alignment: .leading){
-                            Text("Food description eodjeojfoeofjeofoejfojefoejfoejfojejfooejfooejfojeofejofjoejfjfeofjeof eodjeodjoedoejoejdoedjoejdoeekdokeodoek")
-                                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                                .font(.system(size: 16))
-                                .lineLimit(3)
-                                .padding(.horizontal, 5)
-
-                            
-                            Spacer()
-                            
-                            
-                            Text("Nov 14, 2022")
-                                .font(.system(size: 16))
-                                .lineLimit(1)
-                                .padding(5)
-                        }
+                    ForEach(_journalEntries) {
+                        EntryModelView(decription: $0.decription, date: $0.date, imageName: $0.imageName)
                     }
-                    .frame(maxWidth: .infinity, maxHeight: 100)
-                    .padding()
                 }
-                .content
+                //.content
                 
                 
                 Spacer()
@@ -71,6 +49,7 @@ struct HomeView: View {
                     
                     Button {
                         isAddFoodItemView.toggle()
+                        //Camera().takePic()
                     } label: {
                         Image(systemName: "square.and.pencil")
                             .font(.system(size: 40))
@@ -83,12 +62,17 @@ struct HomeView: View {
                 
                 
                 //Navigation Controllers
-                NavigationLink(destination: JournalListView(isAddFoodItemView: $isAddFoodItemView), isActive: $isAddFoodItemView){
+                NavigationLink(destination: AddEntryView(isAddFoodItemView: $isAddFoodItemView), isActive: $isAddFoodItemView){
                     EmptyView()
                 }
             }
             .navigationTitle("My Food Journal")
             //.navigationBarTitleDisplayMode(.inline)
+            .onAppear{
+                Utilities().popDemoEntries(8)
+                
+                _journalEntries = Utilities.journalEntries
+            }
         }
     }
 }
