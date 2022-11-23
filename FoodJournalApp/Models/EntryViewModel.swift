@@ -16,30 +16,40 @@ struct EntryModelView: View {
     let imageName:UIImage?
     
     var body: some View {
-        HStack{
-            Image(uiImage: imageName!)
-                .resizable()
-                .aspectRatio(contentMode: .fit)
-                .font(.system(size: 10))
+        ZStack {
             
-            VStack(alignment: .leading){
-                Text(decription)
-                    .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
-                    .font(.system(size: 16))
-                    .lineLimit(3)
-                    .padding(.horizontal, 5)
+            Rectangle()
+                .frame(maxWidth: .infinity, maxHeight: 100)
+                .shadow(radius: 5)
+                .foregroundColor(Color(.white))
+                .padding()
+            
+            HStack{
+                Image(uiImage: imageName!)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .font(.system(size: 10))
                 
-                
-                Spacer()
-                
-                
-                Text(date.description)
-                    .font(.system(size: 16))
-                    .lineLimit(1)
-                    .padding(5)
+                VStack(alignment: .leading){
+                    Text(decription)
+                        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
+                        .font(.system(size: 16))
+                        .lineLimit(3)
+                        .padding(.horizontal, 5)
+                    
+                    
+                    Spacer()
+                    
+                    
+                    Text(date.description)
+                        .font(.system(size: 16))
+                        .lineLimit(1)
+                        .padding(5)
+                }
             }
+            .frame(maxWidth: .infinity, maxHeight: 100)
+            //.shadow(radius: 10)
+            .padding()
         }
-        .frame(maxWidth: .infinity, maxHeight: 100)
-        .padding()
     }
 }

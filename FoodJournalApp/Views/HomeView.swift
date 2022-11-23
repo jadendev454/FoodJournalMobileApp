@@ -23,8 +23,28 @@ struct HomeView: View {
         NavigationView{
             VStack{
                 ScrollView{
-                    ForEach(_journalEntries) {
-                        EntryModelView(decription: $0.decription, date: $0.date, imageName: $0.imageName)
+                    
+                    if !_journalEntries.isEmpty{
+                        ForEach(_journalEntries) {
+                            EntryModelView(decription: $0.decription, date: $0.date, imageName: $0.imageName)
+                        }
+                    }
+                    else{
+                        Text("\'Its very empty in here...\'")
+                            .font(.system(size: 40))
+                            .foregroundColor(Color(.systemGray))
+                            .padding(.horizontal)
+                            .padding(.top, 100)
+                            .bold()
+                            .multilineTextAlignment(.center)
+                        
+                        Text("Why not add something?")
+                            .font(.system(size: 20))
+                            .foregroundColor(Color(.systemGray))
+                            .padding(.horizontal)
+                            .padding(.vertical, 10)
+                            .italic()
+                            .multilineTextAlignment(.center)
                     }
                 }
                 //.content

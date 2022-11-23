@@ -49,7 +49,7 @@ public class Utilities{
             _newEntryList.append(entry)
         }
         
-        //Utilities.adjustJournalEntries(_newEntryList)
+        Utilities.adjustJournalEntries(_newEntryList)
         
         print("\(Utilities.journalEntries.count)")
     }
