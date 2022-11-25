@@ -132,13 +132,17 @@ struct AddEntryView: View{
             }
             
         }
+        .navigationBarTitleDisplayMode(.inline)
     }
     
     //Methods
     func addItem() {
         Utilities().addEntry(JournalItem(decription: entryDecription, date: Date.now, imageName: selectedImage!))
         
-        isAddFoodItemView = false
+        //Utilities.setSavedLocalData()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            isAddFoodItemView.toggle()        }
     }
     
     

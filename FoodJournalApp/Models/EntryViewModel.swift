@@ -10,10 +10,9 @@ import SwiftUI
 
 
 struct EntryModelView: View {
-    
-    let decription:String
-    let date:Date
-    let imageName:UIImage?
+
+    //Vars
+    let entry:JournalItem
     
     var body: some View {
         ZStack {
@@ -25,13 +24,14 @@ struct EntryModelView: View {
                 .padding()
             
             HStack{
-                Image(uiImage: imageName!)
+                Image(uiImage: entry.imageName)
                     .resizable()
                     .aspectRatio(contentMode: .fit)
                     .font(.system(size: 10))
+                    .frame(maxWidth: 200, maxHeight: 200)
                 
                 VStack(alignment: .leading){
-                    Text(decription)
+                    Text(entry.decription)
                         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .leading)
                         .font(.system(size: 16))
                         .lineLimit(3)
@@ -41,7 +41,7 @@ struct EntryModelView: View {
                     Spacer()
                     
                     
-                    Text(date.description)
+                    Text(entry.date.description)
                         .font(.system(size: 16))
                         .lineLimit(1)
                         .padding(5)

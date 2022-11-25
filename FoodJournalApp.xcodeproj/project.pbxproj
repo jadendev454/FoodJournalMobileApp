@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		140B40CF292EA7AA00D3185D /* SingleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140B40CE292EA7AA00D3185D /* SingleImageView.swift */; };
 		1437F7B3292E1AA800D64D0A /* AddEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1437F7B2292E1AA800D64D0A /* AddEntryView.swift */; };
 		147FE642292B5A4D00EFA725 /* FoodJournalAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FE641292B5A4D00EFA725 /* FoodJournalAppApp.swift */; };
 		147FE644292B5A4D00EFA725 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 147FE643292B5A4D00EFA725 /* ContentView.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		140B40CE292EA7AA00D3185D /* SingleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingleImageView.swift; sourceTree = "<group>"; };
 		1437F7B2292E1AA800D64D0A /* AddEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEntryView.swift; sourceTree = "<group>"; };
 		147FE63E292B5A4D00EFA725 /* FoodJournalApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodJournalApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		147FE641292B5A4D00EFA725 /* FoodJournalAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodJournalAppApp.swift; sourceTree = "<group>"; };
@@ -50,6 +52,7 @@
 				147FE64F292B5C6F00EFA725 /* HomeView.swift */,
 				149A7163292C81810049A7B4 /* SettingsView.swift */,
 				1437F7B2292E1AA800D64D0A /* AddEntryView.swift */,
+				140B40CE292EA7AA00D3185D /* SingleImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 				147FE644292B5A4D00EFA725 /* ContentView.swift in Sources */,
 				14C975F6292CD054001DD749 /* EntryViewModel.swift in Sources */,
 				1437F7B3292E1AA800D64D0A /* AddEntryView.swift in Sources */,
+				140B40CF292EA7AA00D3185D /* SingleImageView.swift in Sources */,
 				149A7169292C8B0A0049A7B4 /* Camera.swift in Sources */,
 				147FE642292B5A4D00EFA725 /* FoodJournalAppApp.swift in Sources */,
 			);

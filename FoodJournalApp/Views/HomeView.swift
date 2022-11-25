@@ -11,12 +11,17 @@ struct HomeView: View {
     
     //Vars
     @State var _journalEntries = Utilities.journalEntries
+    @State var isShowSingleImageView:Bool = false
     @State var isAddFoodItemView:Bool = false {
         didSet{
-            loadEntries()
+            //_journalEntries = Utilities.journalEntries
+            print("fjirfjorjforfjrof")
         }
     }
     @State var check:String = "Food description eodjeojfoeofjeofoejfojefoejfoejfojejfooejfooejfojeofejofjoejfjfeofjeof eodjeodjoedoejoejdoedjoejdoeekdokeodoek"
+    @State var tappedEntry:JournalItem = JournalItem(decription: "", date: Date.now, imageName: UIImage())
+    
+    
     
     
     var body: some View {
@@ -25,8 +30,13 @@ struct HomeView: View {
                 ScrollView{
                     
                     if !_journalEntries.isEmpty{
-                        ForEach(_journalEntries) {
-                            EntryModelView(decription: $0.decription, date: $0.date, imageName: $0.imageName)
+                        ForEach(_journalEntries) { _entry in
+                            EntryModelView(entry: _entry.self)
+                                .onTapGesture {
+                                    tappedEntry = _entry.self
+                                    
+                                    isShowSingleImageView = true
+                                }
                         }
                     }
                     else{
@@ -47,6 +57,7 @@ struct HomeView: View {
                             .multilineTextAlignment(.center)
                     }
                 }
+                .padding(.top)
                 //.content
                 
                 
@@ -84,24 +95,28 @@ struct HomeView: View {
                     }
                 }
                 
-                /*
+                
                 //Navigation Controllers
+                NavigationLink(destination:                 SingleImageView(isShowSingleImageView: $isShowSingleImageView, entry: tappedEntry), isActive: $isShowSingleImageView){
+                    EmptyView()
+                }
+                
                 NavigationLink(destination: AddEntryView(isAddFoodItemView: $isAddFoodItemView), isActive: $isAddFoodItemView){
                     EmptyView()
                 }
-                 */
-            }
+            }/*
             .popover(isPresented: $isAddFoodItemView, content: {
                 AddEntryView(isAddFoodItemView: $isAddFoodItemView)
-            })
+            })*/
             .navigationTitle("My Food Journal")
             //.navigationBarTitleDisplayMode(.inline)
             .onAppear{
-                Utilities().popDemoEntries(8)
-                
+                //Utilities().popDemoEntries(8)
+                //Utilities.getSavedLocalData()
                 _journalEntries = Utilities.journalEntries
             }
         }
+        .toolbar(!isShowSingleImageView ? .visible : .hidden, for: ToolbarPlacement.tabBar)
     }
     
     func loadEntries() {
