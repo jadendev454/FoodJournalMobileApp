@@ -132,6 +132,7 @@ struct AddEntryView: View{
             }
             
         }
+        .tint(.blue)
         .navigationBarTitleDisplayMode(.inline)
     }
     

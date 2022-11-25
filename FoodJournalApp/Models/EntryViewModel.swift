@@ -41,8 +41,8 @@ struct EntryModelView: View {
                     Spacer()
                     
                     
-                    Text(entry.date.description)
-                        .font(.system(size: 16))
+                    Text(dateFormatter(entry.date))
+                        .font(.system(size: 12))
                         .lineLimit(1)
                         .padding(5)
                 }
@@ -51,5 +51,13 @@ struct EntryModelView: View {
             //.shadow(radius: 10)
             .padding()
         }
+    }
+    
+    
+    func dateFormatter(_ date:Date) -> String {
+        let formatter3 = DateFormatter()
+        formatter3.dateFormat = "HH:mm E, d MMM y"
+        
+        return formatter3.string(from: date)
     }
 }
