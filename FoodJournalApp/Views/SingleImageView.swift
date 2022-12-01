@@ -6,13 +6,18 @@
 //
 
 import SwiftUI
+import UIKit
 
 struct SingleImageView: View {
     
     //Vars
     @Binding var isShowSingleImageView:Bool
     let entry:JournalItem
-    
+   /* let formatter3 = {
+        let formatter3 = DateFormatter()
+        return formatter3.dateFormat = "HH:mm E, d MMM y"
+    }
+    */
     var body: some View {
         VStack{
             Image(uiImage: entry.imageName)
@@ -28,6 +33,17 @@ struct SingleImageView: View {
                 
                 Spacer()
             }
+            
+            
+            HStack {
+                Text(dateFormatter())
+                    .font(.system(size: 14))
+                    .padding()
+                    .fontWeight(.semibold)
+                
+                Spacer()
+            }
+            
 
             Spacer()
             
@@ -69,6 +85,14 @@ struct SingleImageView: View {
         }
         .navigationBarTitleDisplayMode(.inline)
         .navigationBarBackButtonHidden(true)
+    }
+    
+    //Methods
+    func dateFormatter() -> String {
+        let formatter3 = DateFormatter()
+        formatter3.dateFormat = "HH:mm E, d MMM y"
+        
+        return formatter3.string(from: entry.date)
     }
 }
 
