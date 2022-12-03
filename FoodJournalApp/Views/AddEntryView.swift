@@ -11,7 +11,7 @@ struct AddEntryView: View{
     
     //Vars
     @Binding var isAddFoodItemView:Bool
-    @State var entryDecription:String = ""
+    @State var entryDecription:String = "Add item description?"
 
     @State private var sourceType: UIImagePickerController.SourceType = .photoLibrary
     @State private var selectedImage: UIImage?
@@ -31,7 +31,7 @@ struct AddEntryView: View{
                         .clipShape(Circle())
                         .frame(width: 300, height: 300)
                 } else {
-                    Image(systemName: "snow")
+                    Image(systemName: "photo")
                         .resizable()
                         .aspectRatio(contentMode: .fit)
                         .clipShape(Circle())
@@ -86,7 +86,7 @@ struct AddEntryView: View{
                     .shadow(color: Color(.systemYellow), radius: 10)
                     .font(.system(size: 20))
                     .tracking(1)
-                    .padding(.bottom, 80)
+                    .padding(.bottom, 10)
                     .padding(.horizontal)
                 } else {
                     // Fallback on earlier versions
@@ -100,12 +100,9 @@ struct AddEntryView: View{
                     .shadow(color: Color(.systemYellow), radius: 10)
                     .font(.system(size: 20))
                     //.tracking(1)
-                    .padding(.bottom, 80)
+                    .padding(.bottom, 10)
                     .padding(.horizontal)
                 }
-                
-                
-                Spacer()
             }
             .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: self.$isImagePickerDisplay) {
@@ -138,12 +135,17 @@ struct AddEntryView: View{
     
     //Methods
     func addItem() {
-        Utilities().addEntry(JournalItem(decription: entryDecription, date: Date.now, imageName: selectedImage!))
         
-        //Utilities.setSavedLocalData()
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            isAddFoodItemView.toggle()        }
+        if selectedImage != nil{
+            Utilities().addEntry(JournalItem(decription: entryDecription, date: Date.now, imageName: selectedImage!))
+            
+            //Utilities.setSavedLocalData()
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                isAddFoodItemView.toggle()
+                
+            }
+        }
     }
     
     

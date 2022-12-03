@@ -60,7 +60,7 @@ struct SingleImageView: View {
                 .shadow(color: Color(.systemYellow), radius: 10)
                 .font(.system(size: 20))
                 .tracking(1)
-                .padding(.bottom, 80)
+                .padding(.bottom, 10)
                 .padding(.horizontal)
             } else {
                 // Fallback on earlier versions
@@ -76,7 +76,7 @@ struct SingleImageView: View {
                 .shadow(color: Color(.systemYellow), radius: 10)
                 .font(.system(size: 20))
                 //.tracking(1)
-                .padding(.bottom, 80)
+                .padding(.bottom, 10)
                 .padding(.horizontal)
             }
         }
