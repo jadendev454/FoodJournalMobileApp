@@ -10,6 +10,7 @@ import SwiftUI
 struct HomeView: View {
     
     //Vars
+    @Binding var isDarkMode:Bool
     @State var _journalEntries = Utilities.journalEntries
     @State var isShowSingleImageView:Bool = false
     @State var isAddFoodItemView:Bool = false {
@@ -31,7 +32,7 @@ struct HomeView: View {
                     
                     if !_journalEntries.isEmpty{
                         ForEach(_journalEntries) { _entry in
-                            EntryModelView(entry: _entry.self)
+                            EntryModelView(isDarkMode: $isDarkMode, entry: _entry.self)
                                 .onTapGesture {
                                     tappedEntry = _entry.self
                                     
@@ -126,6 +127,6 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        HomeView(isDarkMode: .constant(false))
     }
 }

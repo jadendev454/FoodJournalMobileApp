@@ -7,11 +7,13 @@
 
 import Foundation
 import SwiftUI
+import UIKit
 
 
 struct EntryModelView: View {
 
     //Vars
+    @Binding var isDarkMode:Bool
     let entry:JournalItem
     
     var body: some View {
@@ -21,6 +23,7 @@ struct EntryModelView: View {
                 .frame(maxWidth: .infinity, maxHeight: 100)
                 .shadow(radius: 5)
                 .foregroundColor(Color(.white))
+                .cornerRadius(15)
                 .padding()
             
             HStack{
@@ -29,6 +32,7 @@ struct EntryModelView: View {
                     .aspectRatio(contentMode: .fit)
                     .font(.system(size: 10))
                     .frame(maxWidth: 200, maxHeight: 200)
+                    .padding(.vertical, 5)
                 
                 VStack(alignment: .leading){
                     Text(entry.decription)
@@ -46,10 +50,13 @@ struct EntryModelView: View {
                         .lineLimit(1)
                         .padding(5)
                 }
+                .foregroundColor(isDarkMode ? Color.black : Color.black)
             }
             .frame(maxWidth: .infinity, maxHeight: 100)
-            //.shadow(radius: 10)
-            .padding()
+            .background(isDarkMode ? Color.yellow : Color.yellow)
+            .cornerRadius(15)
+            .padding(.horizontal)
+            .padding(.vertical, 5)
         }
     }
     
