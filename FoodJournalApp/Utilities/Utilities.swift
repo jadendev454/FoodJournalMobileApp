@@ -10,7 +10,7 @@ import SwiftUI
 import UIKit
 
 
-struct JournalItem: Identifiable{
+struct JournalItem: Identifiable, Equatable{
     var id: UUID = UUID()
     
     let decription:String
