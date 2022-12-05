@@ -13,13 +13,7 @@ struct HomeView: View {
     @Binding var isDarkMode:Bool
     @State var _journalEntries = Utilities.journalEntries
     @State var isShowSingleImageView:Bool = false
-    @State var isAddFoodItemView:Bool = false {
-        didSet{
-            //_journalEntries = Utilities.journalEntries
-            print("fjirfjorjforfjrof")
-        }
-    }
-    @State var check:String = "Food description eodjeojfoeofjeofoejfojefoejfoejfojejfooejfooejfojeofejofjoejfjfeofjeof eodjeodjoedoejoejdoedjoejdoeekdokeodoek"
+    @State var isAddFoodItemView:Bool = false
     @State var tappedEntry:JournalItem = JournalItem(decription: "", date: Date.now, imageName: UIImage())
     
     
@@ -59,7 +53,6 @@ struct HomeView: View {
                     }
                 }
                 .padding(.top)
-                //.content
                 
                 
                 Spacer()
@@ -85,7 +78,6 @@ struct HomeView: View {
                     
                     Button {
                         isAddFoodItemView.toggle()
-                        //Camera().takePic()
                     } label: {
                         Image(systemName: "square.and.pencil")
                             .font(.system(size: 40))
@@ -105,15 +97,9 @@ struct HomeView: View {
                 NavigationLink(destination: AddEntryView(isAddFoodItemView: $isAddFoodItemView), isActive: $isAddFoodItemView){
                     EmptyView()
                 }
-            }/*
-            .popover(isPresented: $isAddFoodItemView, content: {
-                AddEntryView(isAddFoodItemView: $isAddFoodItemView)
-            })*/
+            }
             .navigationTitle("My Food Journal")
-            //.navigationBarTitleDisplayMode(.inline)
             .onAppear{
-                //Utilities().popDemoEntries(8)
-                //Utilities.getSavedLocalData()
                 _journalEntries = Utilities.journalEntries
             }
         }

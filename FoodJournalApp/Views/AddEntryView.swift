@@ -60,20 +60,10 @@ struct AddEntryView: View{
                     
                 }
                 .padding()
-                
-                /*
-                Button("Camera") {
-                    self.sourceType = .camera
-                    self.isImagePickerDisplay.toggle()
-                }.padding()
-                
-                Button("photo") {
-                    self.sourceType = .photoLibrary
-                    self.isImagePickerDisplay.toggle()
-                }.padding()
-                */
+
                  
                 Spacer()
+ 
                 
                 if #available(iOS 16.0, *) {
                     Button("Add Item") {
@@ -99,7 +89,6 @@ struct AddEntryView: View{
                     .cornerRadius(45)
                     .shadow(color: Color(.systemYellow), radius: 10)
                     .font(.system(size: 20))
-                    //.tracking(1)
                     .padding(.bottom, 10)
                     .padding(.horizontal)
                 }
@@ -108,11 +97,7 @@ struct AddEntryView: View{
             .sheet(isPresented: self.$isImagePickerDisplay) {
                 ImagePickerView(selectedImage: self.$selectedImage, sourceType: self.sourceType)
         }
-            /*
-            Image(systemName: "camera.badge.ellipsis")
-                .font(.system(size: 30))
-                .padding(20)
-            */
+
             
             Menu {
                 Button("Take Photo", action: {
@@ -139,7 +124,6 @@ struct AddEntryView: View{
         if selectedImage != nil{
             Utilities().addEntry(JournalItem(decription: entryDecription, date: Date.now, imageName: selectedImage!))
             
-            //Utilities.setSavedLocalData()
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 isAddFoodItemView.toggle()

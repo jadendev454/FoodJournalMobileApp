@@ -13,11 +13,8 @@ struct SingleImageView: View {
     //Vars
     @Binding var isShowSingleImageView:Bool
     let entry:JournalItem
-   /* let formatter3 = {
-        let formatter3 = DateFormatter()
-        return formatter3.dateFormat = "HH:mm E, d MMM y"
-    }
-    */
+    
+    
     var body: some View {
         VStack{
             Image(uiImage: entry.imageName)
