@@ -1,3 +1,3 @@
 # FoodJournalMobileApp
 
--> Don't touch my shit
+-> Don't touch my sh*t
